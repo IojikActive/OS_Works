@@ -21,6 +21,7 @@ int main(int argc, char **argv)
 
             if((stat(ds->d_name, &myStat) ) ==0 ){ 
                 pwd = getpwuid(myStat.st_uid);
+				myGroup = getgrgid(myStat.st_gid);
             }
 
             // last modified
@@ -31,13 +32,12 @@ int main(int argc, char **argv)
              
 
                 if(pwd != 0){
-                    printf("%s \t %ld \t %s \t %s", pwd->pw_name, (long)myStat.st_size,
-                                                        timebuf, ds->d_name);
+                    printf("%s \t %s \t %ld \t %s \t %ld \t %s ", pwd->pw_name,myGroup->gr_name,(long)myStat.st_size,timebuf,myStat.st_nlink,ds->d_name);
                     printf("\n");
 
                 }else{
-                    printf("%d \t %ld \t %s \t %s", myStat.st_uid, (long)myStat.st_size,
-                                                        timebuf, ds->d_name);
+                    printf("%d \t %s \t %ld \t %s \t %ld \t %s", myStat.st_uid,myGroup->gr_name,(long)myStat.st_size,
+                                                        timebuf, myStat.st_nlink,ds->d_name);
                     printf("\n");
                 }
         
