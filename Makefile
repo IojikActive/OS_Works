@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-std=c99 
-OUTPUT=myLs
+OUTPUT=myLs.out
 
 all: myLs.h myLs.c
 	$(CC) myLs.h myLs.c -o $(OUTPUT)
