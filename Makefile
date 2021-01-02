@@ -7,7 +7,7 @@ all: myLs.h myLs.c
 
 debug: myLs.h myLs.c
 	$(CC) myLs.h myLs.c -o $(OUTPUT)
-	./myLs .
+	./myLs.out .
 	
 
 
