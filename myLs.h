@@ -10,14 +10,12 @@
 
 #define MAX_BLOCK_VALUE (512)
 
-
 DIR  *dptr; //поток каталога 
 struct dirent  *ds; // структура входа в каталог
 struct stat     myStat; // структура атрибутов
 struct tm lt; //структура времени
 struct passwd *pwd; // для UserId
 struct group *myGroup; // группа пользователей
-
 
 char  buff[MAX_BLOCK_VALUE];
 
